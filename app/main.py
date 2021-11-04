@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from app.database.conn import db
-from view import auth, product
+from view import auth_view, product
 from common.config import conf
 from dataclasses import asdict
 
@@ -11,7 +11,7 @@ def create_app():
     conf_dict = asdict(c)
     db.init_app(app, **conf_dict)
 
-    app.include_router(auth.router)
+    app.include_router(auth_view.router)
     app.include_router(product.router)
 
     @app.get("/")
