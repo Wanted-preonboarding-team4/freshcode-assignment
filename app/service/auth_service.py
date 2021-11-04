@@ -25,6 +25,5 @@ def login_user_if_not_found_user(user_info, session):
     if user:
         bcrypt.checkpw(user_info.pw.encode('utf-8'), user.password.encode('utf-8'))
         token = jwt.encode({'user_id':user.id}, JWT_SECRET, JWT_ALGORITHM)
-        print(token)
         return token
     return False
