@@ -1,10 +1,14 @@
 import uvicorn
 from fastapi import FastAPI
+from app.database.conn import db
+from view import auth, product
 
 
 def create_app():
-
     app = FastAPI()
+
+    app.include_router(auth.router)
+    app.include_router(product.router)
 
     @app.get("/")
     def hello_fastapi():
