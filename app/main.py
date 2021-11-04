@@ -1,9 +1,15 @@
-import uvicorn
 from fastapi import FastAPI
-from app.database.conn import db
-from view import auth_view, product
-from common.config import conf
 from dataclasses import asdict
+
+import uvicorn
+
+# from app.database.conn import db
+# from app.view.auth_view import user_login, user_signup
+from database.conn import db
+from view.auth_view import user_login, user_signup
+from common.config import conf
+from view import auth_view, product
+
 
 def create_app():
     app = FastAPI()

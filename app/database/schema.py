@@ -12,10 +12,10 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session,relationship
-from ..database.conn import Base, db
+from database.conn import Base, db
 
 
-class baseMixin:
+class BaseMixin:
     id = Column(Integer, primary_key=True, index=True)
 
     def all_columns(self):
@@ -50,12 +50,12 @@ class baseMixin:
         return query.first()
 
 
-class UserType(Base, baseMixin):
+class UserType(Base, BaseMixin):
     __tablename__ = "user_type"
     name = Column(String(length=255), nullable=False)
 
 
-class Users(Base, baseMixin):
+class Users(Base, BaseMixin):
     __tablename__ = "user"
     user_type_id = Column(Integer, ForeignKey(UserType.id))
     email = Column(String(length=255), nullable=False)
