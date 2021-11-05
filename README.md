@@ -54,6 +54,9 @@
 - `./.gitignore`
 - `./requirements.txt`
 
+## Endpoint  
+![image](https://user-images.githubusercontent.com/32921115/140575249-e67b58be-d5c0-4bdf-baec-c265efcd898c.png)
+
 ## 구현기능  
 
 ### 회원가입, 로그인  
