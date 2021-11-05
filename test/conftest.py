@@ -7,10 +7,10 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 from fastapi import FastAPI
-from app.database.schema import Users
-from app.main import create_app
-from app.database.conn import db, Base
-from app.service import login_user_if_not_found_user, create_user_if_not_found_email
+from database.schema import Users
+from main import create_app
+from database.conn import db, Base
+from service import login_user_if_not_found_user, create_user_if_not_found_email
 
 """
 1. DB 생성

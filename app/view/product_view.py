@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Depends
-from app.models import MenuRegister
+from models import MenuRegister
 from sqlalchemy.orm import Session
-from app.database.conn import db
+from database.conn import db
 from starlette.responses import JSONResponse
-from app.service.product_service import is_menu_name_exist, delete_product_if_exist, menu_list_service, \
+from service.product_service import is_menu_name_exist, delete_product_if_exist, menu_list_service, \
     is_menu_exist_than_update_product, menu_detail_service
 from typing import AnyStr, Any, Dict
-from app.utils import JWTBearer, JWTBearerForAdminOnly
+from utils import JWTBearer, JWTBearerForAdminOnly
 
 router = APIRouter(prefix="/products")
 

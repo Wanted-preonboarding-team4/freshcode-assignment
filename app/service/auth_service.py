@@ -1,9 +1,9 @@
 import bcrypt
 import jwt
 
-from app.database.schema import Users
-from app.repository.auth_repository import is_email_exist
-from app.common.consts import JWT_ALGORITHM, JWT_SECRET
+from database.schema import Users
+from repository.auth_repository import is_email_exist
+from common.consts import JWT_ALGORITHM, JWT_SECRET
 import time
 
 

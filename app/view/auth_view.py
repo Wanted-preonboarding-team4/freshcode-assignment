@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from starlette.responses import JSONResponse
 
-from app.models import UserRegister
-from app.database.conn import db
-from app.service.auth_service import create_user_if_not_found_email, login_user_if_not_found_user
+from models import UserRegister
+from database.conn import db
+from service.auth_service import create_user_if_not_found_email, login_user_if_not_found_user
 
 router = APIRouter(prefix="/auth")
 

@@ -10,7 +10,7 @@ from sqlalchemy import (
     ForeignKey
 )
 from sqlalchemy.orm import Session
-from app.database.conn import Base, db
+from database.conn import Base, db
 
 
 class BaseMixin:

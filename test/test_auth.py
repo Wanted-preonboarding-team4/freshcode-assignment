@@ -1,6 +1,6 @@
 import os
-from app.database import Users, UserType
-from app.main import create_app
+from database import Users, UserType
+from main import create_app
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends
 from app.database.conn import db, Base

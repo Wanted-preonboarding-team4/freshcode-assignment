@@ -1,8 +1,8 @@
 import time
 
 import jwt
-from app.common.consts import JWT_SECRET, JWT_ALGORITHM
-from app.database.schema import Users
+from common.consts import JWT_SECRET, JWT_ALGORITHM
+from database.schema import Users
 
 from fastapi import Request, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials

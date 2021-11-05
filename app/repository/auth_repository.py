@@ -1,5 +1,5 @@
-from app.database.schema import Users
-from app.common.consts import JWT_SECRET, JWT_ALGORITHM
+from database.schema import Users
+from common.consts import JWT_SECRET, JWT_ALGORITHM
 
 
 from datetime import datetime, timedelta

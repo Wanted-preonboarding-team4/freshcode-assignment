@@ -1,4 +1,4 @@
-from app.database.schema import Menu, Item, Tag
+from database.schema import Menu, Item, Tag
 
 
 def is_menu_name_exist(menu_name):

@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-from app.database.conn import db
+from database.conn import db
 from view import auth_view, product_view
 from common.config import conf
 from dataclasses import asdict

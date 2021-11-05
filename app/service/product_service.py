@@ -1,4 +1,4 @@
-from app.repository import product_repository, menu_list_repository, menu_detail_repository,is_menu_exist
+from repository import product_repository, menu_list_repository, menu_detail_repository,is_menu_exist
 from starlette.responses import JSONResponse
 
 
