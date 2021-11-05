@@ -1,7 +1,9 @@
 # [Assignment 1] Freshcode  
 
 ## 사용한 기술 스택
-- ```FastAPI, mysql```
+
+<img alt="Python" src = "https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white"/>
+<img alt="Python" src = "https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
 
 ## 팀원  
 | **이름** | **Github Link** |
