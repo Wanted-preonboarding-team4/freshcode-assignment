@@ -1,5 +1,11 @@
 # [Assignment 2] Freshcode  
 
+## 배포주소
+http://13.209.10.0:8000
+
+## API문서주소
+http://13.209.10.0:8000/docs
+
 ## 사용한 기술 스택
 <p>
 <img alt="Python" src = "https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white"/>
