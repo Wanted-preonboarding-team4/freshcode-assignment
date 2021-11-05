@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from os import name
 
 from sqlalchemy import (
     Column,
@@ -12,6 +13,8 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session,relationship
+from sqlalchemy.sql.expression import _BindParamClause
+from sqlalchemy.sql.functions import count
 from database.conn import Base, db
 
 
@@ -64,3 +67,41 @@ class Users(Base, BaseMixin):
     update_at = Column(DateTime, nullable=False, default=func.utc_timestamp(), onupdate=func.utc_timestamp())
 
     user_type=relationship("UserType")
+
+class FoodCategory(Base, BaseMixin):
+    __tablename__= "food_category"
+    name = Column(String(length=45), nullable=False)
+
+class Badge(Base,BaseMixin):
+    __tablename__= "badge"
+    name = Column(String(length=45), nullable=False)
+
+class Menu(Base,BaseMixin):
+    __tablename__= "menu"
+    name = Column(String(length=45), nullable=False)
+    is_sold = Column(Boolean(),nullable=False, default=False)
+    count = Column(String(length=45), nullable=False)
+    food_category_id = Column(Integer, ForeignKey(FoodCategory.id))
+    badge_id = Column(Integer, ForeignKey(Badge.id))
+
+class TagType(Base,BaseMixin):
+    __tablename__="tag_type"
+    name = Column(String(length=45), nullable=False)
+
+class Tag(Base, BaseMixin):
+    __tablename__="tag"
+    name = Column(String(length=45), nullable=False)
+    menu_id = Column(Integer,ForeignKey(Menu.id))
+    tag_type_id = Column(Integer,ForeignKey(TagType.id))
+
+class SizeType(Base,BaseMixin):
+    __tablename__="size_type"
+    name = Column(String(length=45), nullable=False)
+
+class Item(Base,BaseMixin):
+    __tablename__="item"
+    count = Column(Integer,nullable=False)
+    is_sold = Column(Boolean(),nullable=False, default=False)
+    price = Column(Integer,nullable=False)
+    menu_id = Column(Integer,ForeignKey(Menu.id))
+    size_id = Column(Integer,ForeignKey(SizeType.id))
