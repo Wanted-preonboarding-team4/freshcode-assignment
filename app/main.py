@@ -14,10 +14,6 @@ def create_app():
     app.include_router(auth_view.router)
     app.include_router(product_view.router)
 
-    @app.get("/")
-    def hello_fastapi():
-        return "hello_fastapi"
-
     return app
 
 

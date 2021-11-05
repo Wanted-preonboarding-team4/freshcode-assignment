@@ -9,7 +9,7 @@ from app.service.auth_service import create_user_if_not_found_email, login_user_
 router = APIRouter(prefix="/auth")
 
 
-@router.post("/user_signup")
+@router.post("/user_signup", tags=['user'])
 async def user_signup(reg_info: UserRegister, session: Session = Depends(db.session)):
     if not reg_info.email or not reg_info.pw:
         return JSONResponse(status_code=400, content=dict(msg="이메일과 패스워드는 반드시 포함되어야 합니다."))
@@ -18,7 +18,7 @@ async def user_signup(reg_info: UserRegister, session: Session = Depends(db.sess
     return JSONResponse(status_code=201, content=dict(msg="회원가입되셨습니다."))
 
 
-@router.post("/user/login")
+@router.post("/user/login", tags=['product'])
 async def user_login(user_info: UserRegister, session: Session = Depends(db.session)):
     if not user_info.email or not user_info.pw:
         return JSONResponse(status_code=400, content=dict(msg="이메일과 패스워드는 반드시 포함되어야 합니다."))
