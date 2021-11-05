@@ -5,8 +5,17 @@ from view import auth_view, product_view
 from common.config import conf
 from dataclasses import asdict
 
+description = """
+# [Assignment 2] 프레시코드 과제
+
+
+### 팀원 : 강대훈, 김훈태, 안다민, 이무현, 송빈호, 정성헌
+
+"""
+
 def create_app():
-    app = FastAPI()
+    app = FastAPI(title="Freshcode Restfull API",
+                  description=description)
     c = conf()
     conf_dict = asdict(c)
     db.init_app(app, **conf_dict)
@@ -20,4 +29,4 @@ def create_app():
 app = create_app()
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
