@@ -89,7 +89,6 @@ class Menu(Base,BaseMixin):
     __tablename__    = "menu"
     name             = Column(String(length=45), nullable=False)
     is_sold          = Column(Boolean(),nullable=False, default=False)
-    count            = Column(String(length=45), nullable=False)
     food_category_id = Column(Integer, ForeignKey(FoodCategory.id))
     badge_id         = Column(Integer, ForeignKey(Badge.id), nullable=True)
     tag_id           = Column(Integer, ForeignKey(Tag.id))
