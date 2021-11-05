@@ -9,7 +9,7 @@
 ## 팀원  
 | **이름** | **Github Link** |
 |:------|:-------------|
-| 강대훈 |          |
+| 강대훈 | https://github.com/daehoon12 |
 | 김훈태 |https://github.com/kim-hoontae|
 | 안다민| https://github.com/damin0320|
 | 이무현 |https://github.com/PeterLEEEEEE |
