@@ -1,13 +1,15 @@
 import bcrypt
 import jwt
 
-# from app.database.schema import Users
-# from app.repository.auth_repository import is_email_exist, create_access_token
-# from app.common.consts import JWT_ALGORITHM, JWT_SECRET
+from app.database.schema import Users
+from app.repository.auth_repository import is_email_exist, create_access_token
+from app.common.consts import JWT_ALGORITHM, JWT_SECRET
+import time
 
-from database.schema import Users
-from repository.auth_repository import is_email_exist, create_access_token
-from common.consts import JWT_ALGORITHM, JWT_SECRET
+
+# from database.schema import Users
+# from repository.auth_repository import is_email_exist, create_access_token
+# from common.consts import JWT_ALGORITHM, JWT_SECRET
 
 
 def create_user_if_not_found_email(reg_info, session):
@@ -24,6 +26,6 @@ def login_user_if_not_found_user(user_info, session):
     user = Users.get(email=user_info.email)
     if user:
         bcrypt.checkpw(user_info.pw.encode('utf-8'), user.password.encode('utf-8'))
-        token = jwt.encode({'user_id':user.id}, JWT_SECRET, JWT_ALGORITHM)
+        token = jwt.encode({'user_id': user.id, "expires": time.time() + 600}, JWT_SECRET, JWT_ALGORITHM)
         return token
     return False
