@@ -18,7 +18,8 @@
 
 ## 모델링  
 
-![image](https://user-images.githubusercontent.com/32921115/140473198-afb3b2ec-4be3-406d-8c29-ee04015a6a6e.png)
+![image](https://user-images.githubusercontent.com/32921115/140573692-187ceacb-6d1e-4e5a-9384-80326d1dceee.png)
+
 
 
 ## 파일 구조  
