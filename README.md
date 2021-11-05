@@ -42,17 +42,17 @@
   - `./view`
     - `./__init__py`
     - `./auth_view.py`
-    - `./product_view.py`      
+    - `./product_view.py`
 - `./test`
     - `./__init__py`
     - `./conftest.py`
-    - `./test_auth.py`      
-
+    - `./test_auth.py`
 - `./main.py`
 - `./models.py`
 - `./utils.py`
 - `./.gitignore`
 - `./requirements.txt`
+
 
 ## 구현기능  
 
