@@ -10,9 +10,10 @@ class UserRegister(BaseModel):
 
 class Item(BaseModel):
     name: str = "미디움"
-    size: str = "M"
+    size_id: int = 1
     price: int = 8000
-    isSold: bool = False
+    is_sold: bool = False
+    count: int = 100
 
 
 class Tag(BaseModel):
@@ -21,10 +22,11 @@ class Tag(BaseModel):
 
 
 class MenuRegister(BaseModel):
-    category: str = "SALAD"
+    category_id: int = 1
     menu_name: str = "깔라마리 달래 샐러드"
     description: str = "해산물 샐러드"
     menu_isSold: bool = False
     badge_id: int = 1
     item: list[Item]
-    tags_id: int = 1
+    tag_id: int = 1
+    count: str = "1"
