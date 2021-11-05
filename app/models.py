@@ -1,5 +1,6 @@
 from pydantic.main import BaseModel
 from pydantic.networks import EmailStr
+from typing import List, Optional
 
 
 class UserRegister(BaseModel):
@@ -23,7 +24,7 @@ class Tag(BaseModel):
 
 class MenuRegister(BaseModel):
     category_id: int = 1
-    menu_name: str = "깔라마리 달래 샐러드"
+    name: str = "깔라마리 달래 샐러드"
     description: str = "해산물 샐러드"
     menu_isSold: bool = False
     badge_id: int = 1
