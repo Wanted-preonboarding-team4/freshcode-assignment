@@ -53,7 +53,6 @@
 - `./.gitignore`
 - `./requirements.txt`
 
-
 ## 구현기능  
 
 ### 회원가입, 로그인  
@@ -68,3 +67,5 @@
 - ```Delete``` : 서버는 Menu Id를 Parameter인 Request 메시지를 받습니다. 받은 후 삭제에 성공하면 200, 실패 시 400을 클라이언트에 보냅니다.  
 
 ### 회원 권한 (Read)  
+- Get 형식인 Request 메시지를 통해 상품 목록을 읽어옵니다.  
+- 아이디를 Parameter로 담아서 보내면 id와 일치하는 상품의 상세 정보를 읽어옵니다.
