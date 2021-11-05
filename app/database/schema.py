@@ -53,55 +53,55 @@ class BaseMixin:
         return query.first()
 
 
-class UserType(Base, BaseMixin):
+class UserType(Base, BaseMixin): 
     __tablename__ = "user_type"
-    name = Column(String(length=255), nullable=False)
+    name          = Column(String(length=255), nullable=False)
 
 
 class Users(Base, BaseMixin):
     __tablename__ = "user"
-    user_type_id = Column(Integer, ForeignKey(UserType.id))
-    email = Column(String(length=255), nullable=False)
-    password = Column(String(length=255), nullable=False)
-    create_at = Column(DateTime, nullable=False, default=func.utc_timestamp())
-    update_at = Column(DateTime, nullable=False, default=func.utc_timestamp(), onupdate=func.utc_timestamp())
+    user_type_id  = Column(Integer, ForeignKey(UserType.id))
+    email         = Column(String(length=255), nullable=False)
+    password      = Column(String(length=255), nullable=False)
+    create_at     = Column(DateTime, nullable=False, default=func.utc_timestamp())
+    update_at     = Column(DateTime, nullable=False, default=func.utc_timestamp(), onupdate=func.utc_timestamp())
 
     user_type=relationship("UserType")
 
 class FoodCategory(Base, BaseMixin):
-    __tablename__= "food_category"
-    name = Column(String(length=45), nullable=False)
+    __tablename__ = "food_category"
+    name          = Column(String(length=45), nullable=False)
 
 class Badge(Base,BaseMixin):
-    __tablename__= "badge"
-    name = Column(String(length=45), nullable=False)
-
-class Menu(Base,BaseMixin):
-    __tablename__= "menu"
-    name = Column(String(length=45), nullable=False)
-    is_sold = Column(Boolean(),nullable=False, default=False)
-    count = Column(String(length=45), nullable=False)
-    food_category_id = Column(Integer, ForeignKey(FoodCategory.id))
-    badge_id = Column(Integer, ForeignKey(Badge.id))
+    __tablename__ = "badge"
+    name          = Column(String(length=45), nullable=True)
 
 class TagType(Base,BaseMixin):
-    __tablename__="tag_type"
-    name = Column(String(length=45), nullable=False)
+    __tablename__ = "tag_type"
+    name          = Column(String(length=45), nullable=False)
 
 class Tag(Base, BaseMixin):
-    __tablename__="tag"
-    name = Column(String(length=45), nullable=False)
-    menu_id = Column(Integer,ForeignKey(Menu.id))
-    tag_type_id = Column(Integer,ForeignKey(TagType.id))
+    __tablename__ = "tag"
+    name          = Column(String(length=45), nullable=False)
+    tag_type_id   = Column(Integer,ForeignKey(TagType.id))
+
+class Menu(Base,BaseMixin):
+    __tablename__    = "menu"
+    name             = Column(String(length=45), nullable=False)
+    is_sold          = Column(Boolean(),nullable=False, default=False)
+    count            = Column(String(length=45), nullable=False)
+    food_category_id = Column(Integer, ForeignKey(FoodCategory.id))
+    badge_id         = Column(Integer, ForeignKey(Badge.id), nullable=True)
+    tag_id           = Column(Integer, ForeignKey(Tag.id))
 
 class SizeType(Base,BaseMixin):
-    __tablename__="size_type"
-    name = Column(String(length=45), nullable=False)
+    __tablename__ = "size_type"
+    name          = Column(String(length=45), nullable=False)
 
 class Item(Base,BaseMixin):
-    __tablename__="item"
-    count = Column(Integer,nullable=False)
-    is_sold = Column(Boolean(),nullable=False, default=False)
-    price = Column(Integer,nullable=False)
-    menu_id = Column(Integer,ForeignKey(Menu.id))
-    size_id = Column(Integer,ForeignKey(SizeType.id))
+    __tablename__ = "item"
+    count         = Column(Integer,nullable=False)
+    is_sold       = Column(Boolean(),nullable=False, default=False)
+    price         = Column(Integer,nullable=False)
+    menu_id       = Column(Integer,ForeignKey(Menu.id))
+    size_id       = Column(Integer,ForeignKey(SizeType.id))
