@@ -67,4 +67,54 @@ class Users(Base, BaseMixin):
     create_at = Column(DateTime, nullable=False, default=func.utc_timestamp())
     update_at = Column(DateTime, nullable=False, default=func.utc_timestamp(), onupdate=func.utc_timestamp())
 
-    user_type=relationship("UserType")
+class FoodCategory(Base, BaseMixin):
+    __tablename__ = "food_category"
+    __table_args__ = {'extend_existing': True}
+
+    name = Column(String(length=45), nullable=False)
+
+class Badge(Base, BaseMixin):
+    __tablename__ = "badge"
+    __table_args__ = {'extend_existing': True}
+
+    name = Column(String(length=45), nullable=False)
+
+class Menu(Base, BaseMixin):
+    __tablename__ = "menu"
+    __table_args__ = {'extend_existing': True}
+
+    name = Column(String(length=45), nullable=False)
+    is_sold = Column(Boolean(), nullable=False, default=False)
+    count = Column(String(length=45), nullable=False)
+    food_category_id = Column(Integer, ForeignKey(FoodCategory.id))
+    badge_id = Column(Integer, ForeignKey(Badge.id))
+
+class TagType(Base, BaseMixin):
+    __tablename__ = "tag_type"
+    __table_args__ = {'extend_existing': True}
+
+    name = Column(String(length=45), nullable=False)
+
+class Tag(Base, BaseMixin):
+    __tablename__ = "tag"
+    __table_args__ = {'extend_existing': True}
+
+    name = Column(String(length=45), nullable=False)
+    menu_id = Column(Integer, ForeignKey(Menu.id))
+    tag_type_id = Column(Integer, ForeignKey(TagType.id))
+
+class SizeType(Base, BaseMixin):
+    __tablename__ = "size_type"
+    __table_args__ = {'extend_existing': True}
+
+    name = Column(String(length=45), nullable=False)
+
+class Item(Base, BaseMixin):
+    __tablename__ = "item"
+    __table_args__ = {'extend_existing': True}
+
+    count = Column(Integer, nullable=False)
+    is_sold = Column(Boolean(), nullable=False, default=False)
+    price = Column(Integer, nullable=False)
+    menu_id = Column(Integer, ForeignKey(Menu.id))
+    size_id = Column(Integer, ForeignKey(SizeType.id))
