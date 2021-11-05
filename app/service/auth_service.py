@@ -24,8 +24,8 @@ def login_user_if_not_found_user(user_info, session):
     if not is_email_exist(user_info.email):
         return False
     user = Users.get(email=user_info.email)
-    if user:
-        bcrypt.checkpw(user_info.pw.encode('utf-8'), user.password.encode('utf-8'))
+    password_match = bcrypt.checkpw(user_info.pw.encode('utf-8'), user.password.encode('utf-8'))
+    if user and password_match:
         token = jwt.encode({'user_id': user.id, "expires": time.time() + 600}, JWT_SECRET, JWT_ALGORITHM)
         return token
     return False
