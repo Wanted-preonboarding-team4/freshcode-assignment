@@ -11,7 +11,7 @@
 |:------|:-------------|
 | 강대훈 |          |
 | 김훈태 |https://github.com/kim-hoontae|
-| 안다민| |
+| 안다민| https://github.com/damin0320|
 | 이무현 |https://github.com/PeterLEEEEEE |
 | 송빈호 |  |
 | 정성헌 |  | 
