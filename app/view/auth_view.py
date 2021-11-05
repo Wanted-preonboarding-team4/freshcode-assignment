@@ -2,13 +2,9 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from starlette.responses import JSONResponse
 
-# from app.models import UserRegister
-# from app.database.conn import db
-# from app.service.auth_service import create_user_if_not_found_email, login_user_if_not_found_user
-
-from models import UserRegister
-from database.conn import db
-from service.auth_service import create_user_if_not_found_email, login_user_if_not_found_user
+from app.models import UserRegister
+from app.database.conn import db
+from app.service.auth_service import create_user_if_not_found_email, login_user_if_not_found_user
 
 router = APIRouter(prefix="/auth")
 
@@ -20,6 +16,7 @@ async def user_signup(reg_info: UserRegister, session: Session = Depends(db.sess
     if not create_user_if_not_found_email(reg_info, session):
         return JSONResponse(status_code=400, content=dict(msg="이미 존재하는 이메일입니다"))
     return JSONResponse(status_code=201, content=dict(msg="회원가입되셨습니다."))
+
 
 @router.post("/user/login")
 async def user_login(user_info: UserRegister, session: Session = Depends(db.session)):

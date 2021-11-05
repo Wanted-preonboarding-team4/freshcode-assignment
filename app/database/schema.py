@@ -6,14 +6,10 @@ from sqlalchemy import (
     String,
     DateTime,
     func,
-    Enum,
     Boolean,
     ForeignKey
 )
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import Session,relationship
-from sqlalchemy.sql.expression import _BindParamClause
-from sqlalchemy.sql.functions import count
+from sqlalchemy.orm import Session
 from app.database.conn import Base, db
 
 
@@ -55,60 +51,75 @@ class BaseMixin:
 class UserType(Base, BaseMixin):
     __tablename__ = "user_type"
     __table_args__ = {'extend_existing': True}
-    name          = Column(String(length=255), nullable=False)
+    name = Column(String(length=255), nullable=False)
 
 
 class Users(Base, BaseMixin):
     __tablename__ = "user"
     __table_args__ = {'extend_existing': True}
-    user_type_id  = Column(Integer, ForeignKey(UserType.id))
-    email         = Column(String(length=255), nullable=False)
-    password      = Column(String(length=255), nullable=False)
-    create_at     = Column(DateTime, nullable=False, default=func.utc_timestamp())
-    update_at     = Column(DateTime, nullable=False, default=func.utc_timestamp(), onupdate=func.utc_timestamp())
+    user_type_id = Column(Integer, ForeignKey(UserType.id))
+    email = Column(String(length=255), nullable=False)
+    password = Column(String(length=255), nullable=False)
+    create_at = Column(DateTime, nullable=False, default=func.utc_timestamp())
+    update_at = Column(DateTime, nullable=False, default=func.utc_timestamp(), onupdate=func.utc_timestamp())
 
 
 class FoodCategory(Base, BaseMixin):
     __tablename__ = "food_category"
     __table_args__ = {'extend_existing': True}
-    name          = Column(String(length=45), nullable=False)
+    name = Column(String(length=45), nullable=False)
 
-class Badge(Base,BaseMixin):
+
+class Badge(Base, BaseMixin):
     __tablename__ = "badge"
     __table_args__ = {'extend_existing': True}
-    name          = Column(String(length=45), nullable=True)
+    name = Column(String(length=45), nullable=True)
 
-class TagType(Base,BaseMixin):
+
+class TagType(Base, BaseMixin):
     __tablename__ = "tag_type"
     __table_args__ = {'extend_existing': True}
-    name          = Column(String(length=45), nullable=False)
+    name = Column(String(length=45), nullable=False)
+
 
 class Tag(Base, BaseMixin):
     __tablename__ = "tag"
     __table_args__ = {'extend_existing': True}
-    name          = Column(String(length=45), nullable=False)
-    tag_type_id   = Column(Integer,ForeignKey(TagType.id))
+    name = Column(String(length=45), nullable=False)
+    tag_type_id = Column(Integer, ForeignKey(TagType.id))
 
-class Menu(Base,BaseMixin):
-    __tablename__    = "menu"
+    def to_dict(self):
+        return dict([(k, getattr(self, k)) for k in self.__dict__.keys() if not k.startswith("_")])
+
+
+class Menu(Base, BaseMixin):
+    __tablename__ = "menu"
     __table_args__ = {'extend_existing': True}
-    name             = Column(String(length=45), nullable=False)
-    is_sold          = Column(Boolean(),nullable=False, default=False)
+    name = Column(String(length=45), nullable=False)
+    is_sold = Column(Boolean(), nullable=False, default=False)
     food_category_id = Column(Integer, ForeignKey(FoodCategory.id))
-    badge_id         = Column(Integer, ForeignKey(Badge.id), nullable=True)
-    tag_id           = Column(Integer, ForeignKey(Tag.id))
-    description= Column(String(length=500), nullable=False)
+    badge_id = Column(Integer, ForeignKey(Badge.id), nullable=True)
+    tag_id = Column(Integer, ForeignKey(Tag.id))
+    description = Column(String(length=500), nullable=False)
 
-class SizeType(Base,BaseMixin):
+    def to_dict(self):
+        return dict([(k, getattr(self, k)) for k in self.__dict__.keys() if not k.startswith("_")])
+
+
+class SizeType(Base, BaseMixin):
     __tablename__ = "size_type"
     __table_args__ = {'extend_existing': True}
-    name          = Column(String(length=45), nullable=False)
+    name = Column(String(length=45), nullable=False)
 
-class Item(Base,BaseMixin):
+
+class Item(Base, BaseMixin):
     __tablename__ = "item"
     __table_args__ = {'extend_existing': True}
-    count         = Column(Integer,nullable=False)
-    is_sold       = Column(Boolean(),nullable=False, default=False)
-    price         = Column(Integer,nullable=False)
-    menu_id       = Column(Integer,ForeignKey(Menu.id))
-    size_id       = Column(Integer,ForeignKey(SizeType.id))
+    count = Column(Integer, nullable=False)
+    is_sold = Column(Boolean(), nullable=False, default=False)
+    price = Column(Integer, nullable=False)
+    menu_id = Column(Integer, ForeignKey(Menu.id))
+    size_id = Column(Integer, ForeignKey(SizeType.id))
+
+    def to_dict(self):
+        return dict([(k, getattr(self, k)) for k in self.__dict__.keys() if not k.startswith("_")])

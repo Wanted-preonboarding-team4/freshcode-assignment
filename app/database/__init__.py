@@ -3,8 +3,8 @@ from .schema import BaseMixin, UserType, Users
 
 __all__ = [
     SQLAlchemy,
-    BaseMixin, 
-    UserType, 
+    BaseMixin,
+    UserType,
     Users,
     db
 ]

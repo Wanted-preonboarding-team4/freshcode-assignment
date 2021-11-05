@@ -1,11 +1,9 @@
-# from app.database.schema import Users
-# from app.common.consts import JWT_SECRET, JWT_ALGORITHM
-from database.schema import Users
-from common.consts import JWT_SECRET, JWT_ALGORITHM
+from app.database.schema import Users
+from app.common.consts import JWT_SECRET, JWT_ALGORITHM
+
 
 from datetime import datetime, timedelta
 import jwt
-
 
 
 def is_email_exist(email: str):
@@ -13,6 +11,7 @@ def is_email_exist(email: str):
     if get_email:
         return True
     return False
+
 
 def create_access_token(*, data: dict = None, expires_delta: int = None):
     to_encode = data.copy()

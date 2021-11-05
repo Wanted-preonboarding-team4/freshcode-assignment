@@ -2,7 +2,7 @@ from .config import Config, ProdConfig, LocalConfig, conf
 
 __all__ = [
     Config,
-    ProdConfig, 
-    LocalConfig, 
+    ProdConfig,
+    LocalConfig,
     conf
 ]
