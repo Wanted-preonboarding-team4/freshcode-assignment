@@ -1,4 +1,4 @@
-# [Assignment 1] Freshcode  
+# [Assignment 2] Freshcode  
 
 ## 사용한 기술 스택
 <p>
@@ -53,6 +53,9 @@
 - `./utils.py`
 - `./.gitignore`
 - `./requirements.txt`
+
+## Endpoint  
+![image](https://user-images.githubusercontent.com/32921115/140575249-e67b58be-d5c0-4bdf-baec-c265efcd898c.png)
 
 ## 구현기능  
 
