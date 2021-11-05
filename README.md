@@ -1,4 +1,4 @@
-# [Assignment 1] Freshcode  
+# [Assignment 2] Freshcode  
 
 ## 사용한 기술 스택
 <p>
