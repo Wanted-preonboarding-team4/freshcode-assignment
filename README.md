@@ -1,17 +1,20 @@
 # [Assignment 1] Freshcode  
 
 ## 사용한 기술 스택
-- ```FastAPI, mysql```
+<p>
+<img alt="Python" src = "https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white"/>
+<img alt="Python" src = "https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
+</p>
 
 ## 팀원  
-| **이름** | **역할** |
+| **이름** | **Github Link** |
 |:------|:-------------|
-| 강대훈 |          |
-| 김훈태 |    |
-| 안다민| |
-| 이무현 | |
-| 송빈호 |  |
-| 정성헌 |  | 
+| 강대훈 | https://github.com/daehoon12 |
+| 김훈태 |https://github.com/kim-hoontae|
+| 안다민| https://github.com/damin0320|
+| 이무현 |https://github.com/PeterLEEEEEE |
+| 송빈호 | https://github.com/binogood |
+| 정성헌 | https://github.com/Heon4856 | 
 
 ## 모델링  
 
