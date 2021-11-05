@@ -28,6 +28,6 @@ class MenuRegister(BaseModel):
     description: str = "해산물 샐러드"
     menu_isSold: bool = False
     badge_id: int = 1
-    item: list[Item]
+    item: List[Item]
     tag_id: int = 1
     count: str = "1"
