@@ -9,12 +9,12 @@
 ## 팀원  
 | **이름** | **Github Link** |
 |:------|:-------------|
-| 강대훈 |     https://github.com/daehoon12     |
+| 강대훈 |          |
 | 김훈태 |https://github.com/kim-hoontae|
 | 안다민| https://github.com/damin0320|
 | 이무현 |https://github.com/PeterLEEEEEE |
-| 송빈호 |  |
-| 정성헌 |  | 
+| 송빈호 | https://github.com/binogood |
+| 정성헌 | https://github.com/Heon4856 | 
 
 ## 모델링  
 
